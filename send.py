@@ -1,8 +1,8 @@
 # Send API script for RCFBBotTemplate
 import requests
 
-ACCESS_TOKEN = 'INSERT_YOUR_FACEBOOK_PAGE_API_ACESSS_TOKEN'
-SEND_API_URL = 'INSERT_YOUR_FACEBOOK_PAGE_API_URL' + ACCESS_TOKEN
+ACCESS_TOKEN = 'EAAVqnKO5uToBAB3rEB4Yj7j5uFWAFEMtBWNdQqrbRi74lgslUUWpWfzznmgQSblzPfunfx9fQlLCwJ693vK7nGeCn1lpokL6Igy2lLcSsZBCF3WxuZAwzNZAnSZAlHePZAp9gisOhjmO3YCoIP0YQA0aqqsqKAFK2zo8J9ipy9QZDZD'
+SEND_API_URL = 'https://graph.facebook.com/v2.6/me/messages?access_token=' + ACCESS_TOKEN
 
 # NORMAL MESSAGES
 
@@ -13,13 +13,13 @@ class Message():
 
     # GETTERS
 
-    def get_response():
+    def get_response(self):
         return self.response
 
-    def get_headers():
+    def get_headers(self):
         return self.headers
 
-    def get_status_code():
+    def get_status_code(self):
         return self.status_code
 
     # CLASS FUNCTIONS
@@ -45,18 +45,18 @@ class MediaMessage():
 
     # GETTERS
 
-    def get_response():
+    def get_response(self):
         return self.response
 
-    def get_headers():
+    def get_headers(self):
         return self.headers
 
-    def get_status_code():
+    def get_status_code(self):
         return self.status_code
 
     # CLASS FUNCTIONS
 
-    def send():
+    def send(self):
         recipient = {'id':self.receiver_messenger_id}
         url = {'url':self.url}
         attachment = {
@@ -83,18 +83,18 @@ class QuickReplyMessage(Message):
 
     # GETTERS
 
-    def get_response():
+    def get_response(self):
         return self.response
 
-    def get_headers():
+    def get_headers(self):
         return self.headers
 
-    def get_status_code():
+    def get_status_code(self):
         return self.status_code
 
     # CLASS FUNCTIONS
 
-    def send():
+    def send(self):
         recipient = {'id':self.receiver_messenger_id}
         message = {
             'text':self.text,
@@ -121,18 +121,18 @@ class ButtonTemplateMessage(Message):
 
     # GETTERS
 
-    def get_response():
+    def get_response(self):
         return self.response
 
-    def get_headers():
+    def get_headers(self):
         return self.headers
 
-    def get_status_code():
+    def get_status_code(self):
         return self.status_code
 
     # CLASS FUNCTIONS
 
-    def send():
+    def send(self):
         recipient = {'id':self.receiver_messenger_id}
         payload = {
             'template_type':'button',
@@ -165,18 +165,18 @@ class GenericTemplateMessage():
 
     # GETTERS
 
-    def get_response():
+    def get_response(self):
         return self.response
 
-    def get_headers():
+    def get_headers(self):
         return self.headers
 
-    def get_status_code():
+    def get_status_code(self):
         return self.status_code
 
     # CLASS FUNCTIONS
 
-    def send():
+    def send(self):
         recipient = {'id':self.receiver_messenger_id}
         payload = {
             'template_type':'generic',
